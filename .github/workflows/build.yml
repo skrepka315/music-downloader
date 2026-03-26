@@ -8,21 +8,49 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        config:
-          - name: Windows
-            os: windows-latest
-            target: win
-
-    name: ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
+    name: Windows
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build mod
-        uses: geode-sdk/build-geode-mod@main
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
         with:
-          sdk: 'v5.4.1'
-          target: ${{ matrix.config.target }}
+          arch: x64
+
+      - name: Install Geode CLI
+        run: |
+          curl -L https://github.com/geode-sdk/cli/releases/download/v3.7.4/geode-cli-v3.7.4-win.zip -o cli.zip
+          7z x cli.zip -ocli
+          echo "${{ github.workspace }}/cli" >> $env:GITHUB_PATH
+
+      - name: Setup Geode SDK
+        run: |
+          geode sdk install --path ${{ runner.temp }}/geode-sdk
+          geode sdk install-binaries
+          geode sdk update
+        env:
+          GEODE_SDK: ${{ runner.temp }}/geode-sdk
+
+      - name: Configure
+        run: |
+          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl
+        env:
+          GEODE_SDK: ${{ runner.temp }}/geode-sdk
+
+      - name: Build
+        run: cmake --build build --config RelWithDebInfo
+        env:
+          GEODE_SDK: ${{ runner.temp }}/geode-sdk
+
+      - name: Package
+        run: geode pkg build build --platform win
+        env:
+          GEODE_SDK: ${{ runner.temp }}/geode-sdk
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: music-downloader
+          path: '**/*.geode'
