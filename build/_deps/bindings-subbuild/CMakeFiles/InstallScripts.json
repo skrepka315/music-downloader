@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

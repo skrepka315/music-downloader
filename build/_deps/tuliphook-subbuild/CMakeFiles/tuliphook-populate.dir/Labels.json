@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/tuliphook-populate"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/959f499afd310bee6ad51c139a5ce820/tuliphook-populate.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/dd9432b3999dcdf23942327e9fc7ded1/tuliphook-populate-complete.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-build.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-configure.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-download.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-install.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-patch.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-test.rule"
+		},
+		{
+			"file" : "C:/GeodeMods/MusicDownloader/build/_deps/tuliphook-subbuild/CMakeFiles/58e1a24a5f41cc13854388cd9e35b57e/tuliphook-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"tuliphook-populate"
+		],
+		"name" : "tuliphook-populate"
+	}
+}

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\0a0e079efa9212f7f17f76297a2ea8cb\result-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\7a2d0bba8f7514fc433c9aa44746ae18\result-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\b2214e8b9f1501ae1709c9787bd56cb2\result-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\GeodeMods\MusicDownloader\build\_deps\result-subbuild\CMakeFiles\result-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{7E94CF83-6B5E-39F5-BE38-D5A412E12440}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

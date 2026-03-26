@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\bindings-subbuild\CMakeFiles\1add09f1c99808e5a7d0141c75af0d29\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{89A3B682-A039-362C-8F17-0F0EB84E86D5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

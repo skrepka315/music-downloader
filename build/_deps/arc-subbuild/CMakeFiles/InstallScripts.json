@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/GeodeMods/MusicDownloader/build/_deps/arc-subbuild/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

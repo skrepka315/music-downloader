@@ -1,0 +1,10 @@
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild -BC:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild --check-stamp-file C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\CMakeFiles\4b58e7e90d2e80773ab0dc09aedbc565\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{BE36E112-BB16-3D7E-A524-BA4A9AAAACAE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

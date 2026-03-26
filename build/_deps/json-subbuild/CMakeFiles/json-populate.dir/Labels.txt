@@ -1,0 +1,14 @@
+# Target labels
+ json-populate
+# Source files and their labels
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/json-populate
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2d10a26589a8151e6de2f82a9f3c9983/json-populate.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/d38d6101dbe9756317b0bd770dbe980b/json-populate-complete.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-build.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-configure.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-download.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-install.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-mkdir.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-patch.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-test.rule
+C:/GeodeMods/MusicDownloader/build/_deps/json-subbuild/CMakeFiles/2485578190994c78acf47876ae4cc015/json-populate-update.rule

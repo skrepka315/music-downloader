@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\8f80074820beb810265b9edb3b8699a3\nontype_functional-populate-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\17d9a21fcb8f260a024c870af07b4c29\nontype_functional-populate-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\c685c549bb1c8b8bc139879634d20552\nontype_functional-populate.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\GeodeMods\MusicDownloader\build\_deps\nontype_functional-subbuild\CMakeFiles\nontype_functional-populate" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{6DF23622-ECD3-361A-825C-EE0E92B04734}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

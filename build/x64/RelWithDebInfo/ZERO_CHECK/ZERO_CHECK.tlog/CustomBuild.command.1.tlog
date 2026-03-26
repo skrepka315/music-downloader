@@ -1,0 +1,10 @@
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\CMAKEFILES\3D11751DAC4AD84BA3A3665C5F52F422\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/GeodeMods/MusicDownloader -BC:/GeodeMods/MusicDownloader/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/GeodeMods/MusicDownloader/build/MusicDownloader.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

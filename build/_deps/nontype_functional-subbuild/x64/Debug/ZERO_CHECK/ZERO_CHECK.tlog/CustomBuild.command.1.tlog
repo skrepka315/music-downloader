@@ -1,0 +1,10 @@
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\NONTYPE_FUNCTIONAL-SUBBUILD\CMAKEFILES\C685C549BB1C8B8BC139879634D20552\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/GeodeMods/MusicDownloader/build/_deps/nontype_functional-subbuild -BC:/GeodeMods/MusicDownloader/build/_deps/nontype_functional-subbuild --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/GeodeMods/MusicDownloader/build/_deps/nontype_functional-subbuild/nontype_functional-populate.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

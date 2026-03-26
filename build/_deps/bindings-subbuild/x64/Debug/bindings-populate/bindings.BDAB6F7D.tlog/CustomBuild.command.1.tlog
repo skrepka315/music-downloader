@@ -1,0 +1,150 @@
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/tmp/bindings-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\GeodeMods\MusicDownloader\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/tmp/bindings-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-UPDATE.RULE
+setlocal
+cd C:\GeodeMods\MusicDownloader\build\_deps\bindings-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -Dcan_fetch=YES -DCMAKE_MESSAGE_LOG_LEVEL=VERBOSE -P C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/tmp/bindings-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\GeodeMods\MusicDownloader\build\_deps\bindings-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-BUILD.RULE
+setlocal
+cd C:\GeodeMods\MusicDownloader\build\_deps\bindings-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-INSTALL.RULE
+setlocal
+cd C:\GeodeMods\MusicDownloader\build\_deps\bindings-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\AD9A0365AE2B4BC6A2492113E8BD7E48\BINDINGS-POPULATE-TEST.RULE
+setlocal
+cd C:\GeodeMods\MusicDownloader\build\_deps\bindings-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\C0DD678E565AD2787941ACDF358D0175\BINDINGS-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/CMakeFiles/Debug/bindings-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E touch C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/bindings-populate-prefix/src/bindings-populate-stamp/Debug/bindings-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKEFILES\1ADD09F1C99808E5A7D0141C75AF0D29\BINDINGS-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\GEODEMODS\MUSICDOWNLOADER\BUILD\_DEPS\BINDINGS-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild -BC:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild --check-stamp-file C:/GeodeMods/MusicDownloader/build/_deps/bindings-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
