@@ -16,36 +16,39 @@ jobs:
 
       - name: Setup MSVC
         uses: ilammy/msvc-dev-cmd@v1
+        # Для модов Geode лучше использовать x86 (32-bit), так как игра 32-битная
         with:
-          arch: x64
+          arch: x86
 
       - name: Install Geode CLI
         run: |
           curl -L https://github.com/geode-sdk/cli/releases/download/v3.7.4/geode-cli-v3.7.4-win.zip -o cli.zip
           7z x cli.zip -ocli
-          echo "${{ github.workspace }}/cli" >> $env:GITHUB_PATH
+          echo "${{ github.workspace }}/cli" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
       - name: Setup Geode SDK
         run: |
-          geode sdk install --path ${{ runner.temp }}/geode-sdk
+          # Устанавливаем SDK (без флага --path)
+          geode sdk install "${{ runner.temp }}/geode-sdk"
+          # Обязательно настраиваем профиль, чтобы CLI видел путь
+          geode config setup
           geode sdk install-binaries
-          geode sdk update
         env:
           GEODE_SDK: ${{ runner.temp }}/geode-sdk
 
       - name: Configure
+        # Добавил -DBUILD_GEODE_LOADER=OFF, чтобы не пересобирать лоадер, если не нужно
         run: |
-          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl
+          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
         env:
           GEODE_SDK: ${{ runner.temp }}/geode-sdk
 
       - name: Build
         run: cmake --build build --config RelWithDebInfo
-        env:
-          GEODE_SDK: ${{ runner.temp }}/geode-sdk
 
       - name: Package
-        run: geode pkg build build --platform win
+        # После сборки через CMake .geode файл обычно уже лежит в папке build
+        run: geode package build build --platform win
         env:
           GEODE_SDK: ${{ runner.temp }}/geode-sdk
 
@@ -53,4 +56,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: music-downloader
-          path: '**/*.geode'
+          path: build/*.geode
