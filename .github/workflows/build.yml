@@ -28,10 +28,15 @@ jobs:
 
       - name: Setup Geode SDK
         run: |
-          # Устанавливаем SDK (без флага --path)
+          # 1. Устанавливаем сам SDK в нужную папку
           geode sdk install "${{ runner.temp }}/geode-sdk"
-          # Обязательно настраиваем профиль, чтобы CLI видел путь
-          geode config setup
+          
+          # 2. Создаем профиль 'default' вручную, указывая путь к SDK
+          # Это заменяет интерактивный 'geode config setup'
+          geode profile add default "${{ runner.temp }}/geode-sdk"
+          geode profile set-default default
+          
+          # 3. Скачиваем бинарники
           geode sdk install-binaries
         env:
           GEODE_SDK: ${{ runner.temp }}/geode-sdk
