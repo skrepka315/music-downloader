@@ -24,24 +24,19 @@ jobs:
         run: |
           git clone https://github.com/geode-sdk/geode.git --recursive --depth 1 -b v5.4.1 "${{ runner.temp }}\geode-sdk"
 
-      - name: Configure
+      - name: Clean and Configure
         shell: pwsh
         run: |
+          Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
           cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
         env:
           GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Build
         shell: pwsh
-        run: |
-          cmake --build build --config RelWithDebInfo
+        run: cmake --build build --config RelWithDebInfo
         env:
           GEODE_SDK: ${{ runner.temp }}\geode-sdk
-
-      - name: Find geode file
-        shell: pwsh
-        run: |
-          Get-ChildItem -Recurse -Filter "*.geode" | ForEach-Object { Write-Host $_.FullName }
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
