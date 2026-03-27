@@ -20,16 +20,37 @@ jobs:
           arch: x64
 
       - name: Install Geode CLI and SDK
+        shell: pwsh
         run: |
           curl -L https://github.com/geode-sdk/cli/releases/download/v3.7.4/geode-cli-v3.7.4-win.zip -o cli.zip
           7z x cli.zip -ocli
           echo "${{ github.workspace }}\cli" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
           $env:PATH = "${{ github.workspace }}\cli;$env:PATH"
-          geode config setup
-          geode sdk install ${{ runner.temp }}\geode-sdk
+
+          $configDir = "$env:LOCALAPPDATA\Geode"
+          New-Item -ItemType Directory -Force -Path $configDir | Out-Null
+
+          $sdkPath = "${{ runner.temp }}\geode-sdk" -replace '\\', '\\'
+
+          $configContent = @"
+          {
+            "profiles": [
+              {
+                "name": "default",
+                "gd_path": "C:\\dummy",
+                "platform": "win",
+                "geode_path": ""
+              }
+            ],
+            "current_profile": 0,
+            "sdk_path": "$sdkPath"
+          }
+          "@
+
+          $configContent | Out-File -FilePath "$configDir\config.json" -Encoding utf8
+
+          geode sdk install "${{ runner.temp }}\geode-sdk"
           geode sdk install-binaries
-        env:
-          GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Configure
         run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
