@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/GeodeMods/MusicDownloader/build/_deps/fmt-subbuild/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
