@@ -19,14 +19,13 @@ jobs:
         with:
           arch: x64
 
-      - name: Install Geode CLI
+      - name: Install Geode CLI and SDK
         run: |
           curl -L https://github.com/geode-sdk/cli/releases/download/v3.7.4/geode-cli-v3.7.4-win.zip -o cli.zip
           7z x cli.zip -ocli
           echo "${{ github.workspace }}\cli" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-
-      - name: Setup Geode SDK
-        run: |
+          $env:PATH = "${{ github.workspace }}\cli;$env:PATH"
+          geode config setup
           geode sdk install ${{ runner.temp }}\geode-sdk
           geode sdk install-binaries
         env:
