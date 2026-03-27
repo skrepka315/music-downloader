@@ -19,24 +19,26 @@ jobs:
         with:
           arch: x64
 
-      - name: Clone Geode SDK
-        shell: pwsh
-        run: |
-          git clone https://github.com/geode-sdk/geode.git --recursive --depth 1 -b v5.4.1 "${{ runner.temp }}\geode-sdk"
+      # 1. Используем официальный установщик SDK
+      - name: Setup Geode SDK
+        uses: geode-sdk/setup-geode@v3
+        with:
+          # Можно указать конкретную версию SDK, если нужно
+          # sdk: v3.0.0 
 
-      - name: Clean and Configure
+      # 2. Устанавливаем бинарные файлы для линковки (loader)
+      - name: Install Binaries
+        run: geode sdk install-binaries
+
+      - name: Configure
         shell: pwsh
         run: |
-          Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
+          # Удаление build папки обычно не нужно на свежем Runner'е
           cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
-        env:
-          GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Build
         shell: pwsh
         run: cmake --build build --config RelWithDebInfo
-        env:
-          GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
