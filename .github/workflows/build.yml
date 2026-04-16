@@ -19,31 +19,42 @@ jobs:
         with:
           arch: x64
 
-      # 1. Используем официальный установщик SDK
-      - name: Setup Geode SDK
-        uses: geode-sdk/setup-geode@v3
-        with:
-          # Можно указать конкретную версию SDK, если нужно
-          # sdk: v3.0.0 
+      - name: Clone Geode SDK
+        shell: pwsh
+        run: git clone https://github.com/geode-sdk/geode.git --recursive --depth 1 -b v5.4.1 "$env:RUNNER_TEMP\geode-sdk"
 
-      # 2. Устанавливаем бинарные файлы для линковки (loader)
-      - name: Install Binaries
-        run: geode sdk install-binaries
+      - name: Install Geode CLI and binaries
+        shell: pwsh
+        run: |
+          curl -L https://github.com/geode-sdk/cli/releases/download/v3.7.4/geode-cli-v3.7.4-win.zip -o cli.zip
+          7z x cli.zip -ocli
+          $cliPath = "$env:GITHUB_WORKSPACE\cli"
+          Add-Content $env:GITHUB_PATH $cliPath
+          $env:PATH = "$cliPath;$env:PATH"
+          $configDir = "$env:APPDATA\geode"
+          New-Item -ItemType Directory -Force -Path $configDir | Out-Null
+          $sdkPath = "$env:RUNNER_TEMP\geode-sdk"
+          Set-Content "$configDir\config.json" "{`"default_profile`":`"ci`",`"profiles`":[{`"name`":`"ci`",`"gd_path`":`"C:\\dummy`",`"geode_path`":`"`"}],`"sdk_path`":`"$($sdkPath -replace '\\','\\\\')`"}"
+          & "$cliPath\geode.exe" sdk install-binaries
+        env:
+          GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Configure
         shell: pwsh
         run: |
-          # Удаление build папки обычно не нужно на свежем Runner'е
+          Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
           cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
+        env:
+          GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Build
         shell: pwsh
         run: cmake --build build --config RelWithDebInfo
+        env:
+          GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: music-downloader
-          path: |
-            build/**/*.geode
-            **/*.geode
+          path: build/**/*.geode
