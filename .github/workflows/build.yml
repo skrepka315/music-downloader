@@ -31,10 +31,30 @@ jobs:
           $cliPath = "$env:GITHUB_WORKSPACE\cli"
           Add-Content $env:GITHUB_PATH $cliPath
           $env:PATH = "$cliPath;$env:PATH"
-          $configDir = "$env:APPDATA\geode"
-          New-Item -ItemType Directory -Force -Path $configDir | Out-Null
+
+          Write-Host "=== Checking config locations ==="
+          Write-Host "APPDATA: $env:APPDATA"
+          Write-Host "LOCALAPPDATA: $env:LOCALAPPDATA"
+          Write-Host "USERPROFILE: $env:USERPROFILE"
+
           $sdkPath = "$env:RUNNER_TEMP\geode-sdk"
-          Set-Content "$configDir\config.json" "{`"default_profile`":`"ci`",`"profiles`":[{`"name`":`"ci`",`"gd_path`":`"C:\\dummy`",`"geode_path`":`"`"}],`"sdk_path`":`"$($sdkPath -replace '\\','\\\\')`"}"
+
+          $locations = @(
+            "$env:APPDATA\geode",
+            "$env:LOCALAPPDATA\geode",
+            "$env:USERPROFILE\.geode",
+            "$env:APPDATA\Geode",
+            "$env:LOCALAPPDATA\Geode"
+          )
+
+          foreach ($loc in $locations) {
+            New-Item -ItemType Directory -Force -Path $loc | Out-Null
+            $json = "{`"default_profile`":`"ci`",`"profiles`":[{`"name`":`"ci`",`"gd_path`":`"C:\\dummy`",`"geode_path`":`"`"}],`"sdk_path`":`"$($sdkPath -replace '\\','/')`"}"
+            Set-Content "$loc\config.json" $json
+            Write-Host "Written config to: $loc\config.json"
+          }
+
+          Write-Host "=== Running geode sdk install-binaries ==="
           & "$cliPath\geode.exe" sdk install-binaries
         env:
           GEODE_SDK: ${{ runner.temp }}\geode-sdk
