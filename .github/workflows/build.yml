@@ -1,3 +1,6 @@
+CLI v3.7.4 не читает наш формат конфига. Попробуем другую версию CLI:
+
+```yaml
 name: Build Geode Mod
 
 on:
@@ -21,49 +24,46 @@ jobs:
 
       - name: Clone Geode SDK
         shell: pwsh
-        run: git clone https://github.com/geode-sdk/geode.git --recursive --depth 1 -b v5.4.1 "$env:RUNNER_TEMP\geode-sdk"
+        run: |
+          git clone https://github.com/geode-sdk/geode.git --recursive --depth 1 -b v5.4.1 "$env:RUNNER_TEMP\geode-sdk"
 
-      - name: Install Geode CLI and binaries
+      - name: Download binaries manually
         shell: pwsh
         run: |
-          curl -L https://github.com/geode-sdk/cli/releases/download/v3.7.4/geode-cli-v3.7.4-win.zip -o cli.zip
-          7z x cli.zip -ocli
-          $cliPath = "$env:GITHUB_WORKSPACE\cli"
-          Add-Content $env:GITHUB_PATH $cliPath
-          $env:PATH = "$cliPath;$env:PATH"
-
-          Write-Host "=== Checking config locations ==="
-          Write-Host "APPDATA: $env:APPDATA"
-          Write-Host "LOCALAPPDATA: $env:LOCALAPPDATA"
-          Write-Host "USERPROFILE: $env:USERPROFILE"
-
           $sdkPath = "$env:RUNNER_TEMP\geode-sdk"
+          $binPath = "$sdkPath\bin\nightly"
+          New-Item -ItemType Directory -Force -Path $binPath | Out-Null
 
-          $locations = @(
-            "$env:APPDATA\geode",
-            "$env:LOCALAPPDATA\geode",
-            "$env:USERPROFILE\.geode",
-            "$env:APPDATA\Geode",
-            "$env:LOCALAPPDATA\Geode"
+          Write-Host "Downloading loader binaries..."
+          $baseUrl = "https://github.com/geode-sdk/geode/releases/download/v5.4.1"
+
+          $files = @(
+            "geode.dll",
+            "Geode.lib",
+            "GeodeBootstrapper.dll"
           )
 
-          foreach ($loc in $locations) {
-            New-Item -ItemType Directory -Force -Path $loc | Out-Null
-            $json = "{`"default_profile`":`"ci`",`"profiles`":[{`"name`":`"ci`",`"gd_path`":`"C:\\dummy`",`"geode_path`":`"`"}],`"sdk_path`":`"$($sdkPath -replace '\\','/')`"}"
-            Set-Content "$loc\config.json" $json
-            Write-Host "Written config to: $loc\config.json"
+          foreach ($file in $files) {
+            $url = "$baseUrl/$file"
+            $dest = "$binPath\$file"
+            Write-Host "Downloading $file..."
+            try {
+              curl -L $url -o $dest --silent
+              if (Test-Path $dest) {
+                Write-Host "OK: $file"
+              }
+            } catch {
+              Write-Host "Skip: $file"
+            }
           }
 
-          Write-Host "=== Running geode sdk install-binaries ==="
-          & "$cliPath\geode.exe" sdk install-binaries
-        env:
-          GEODE_SDK: ${{ runner.temp }}\geode-sdk
+          Get-ChildItem $binPath
 
       - name: Configure
         shell: pwsh
         run: |
           Remove-Item -Recurse -Force build -ErrorAction SilentlyContinue
-          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo
+          cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo -DGEODE_DONT_BUILD_TEST_MODS=ON
         env:
           GEODE_SDK: ${{ runner.temp }}\geode-sdk
 
@@ -78,3 +78,4 @@ jobs:
         with:
           name: music-downloader
           path: build/**/*.geode
+```
